@@ -1,0 +1,63 @@
+body {
+	margin:0;
+	padding: 15px;
+	font-family: "Helvetica Neue", Arial, Helvetica, Arimo, FreeSans, "Nimbus Sans", "Phetsarath OT", Malayalam, "Gargi_1.7", sans-serif;
+	font-size: 14px;
+}
+.left-pane, .right-pane {
+	margin: 0;
+	width: 50%;
+	padding: 0;
+}
+.main {
+	height: 75%;
+	min-height: 10em;
+}
+.left-pane {
+	clear: left;
+	float: left;
+}
+.right-pane {
+	clear: right;
+	float: right;
+}
+#editableContent {
+	white-space: pre-wrap;
+	font-size: 1.0em;
+	line-height: 1.2em;
+	font-family: inherit;
+	height: 100%;
+	overflow: auto;
+	margin-right: 5px;
+	padding: 8px;
+	-webkit-box-shadow: 0 0 2px #f30;
+	-moz-box-shadow: 0 0 2px #f30;
+	box-shadow: 0 0 2px #f30;
+}
+#method {
+	margin-left: 5px;
+}
+#dom {
+	white-space: pre-wrap;
+	margin: 0; padding: 0;
+	margin-left: 5px;
+	padding: 8px;
+	border: none;
+	height: 100%;
+	display: block;
+	-webkit-box-shadow: 0 0 2px #08f;
+	-moz-box-shadow: 0 0 2px #08f;
+	box-shadow: 0 0 2px #08f;
+}
+h1, h3 {
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+@import "cheap-toggle.css";
+
+#dropboxLink {
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+}

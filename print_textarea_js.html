@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Test printing a textarea</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style type="text/css" media="all">
+	/* Styles for all media */
+	#print_helper {
+	  display: none;
+	}
+	.important {
+	  color: #330;
+	  background: #ffd;
+	  border: 2px solid #dd4;
+	  padding: 1em;
+	  margin: 1em 0;
+	}
+	.important a:link,
+	.important a:visited {
+	  color: #591;
+	}
+</style>
+<style type="text/css" media="print">
+  /* Styles for print */
+	#print_helper {
+		display: block;
+		overflow: visible;
+		font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
+		white-space: pre;
+		white-space: pre-wrap;
+	}
+	#the_textarea {
+	  display: none;
+	}
+	#print_placeholder:after {
+		content: "The print stylesheet has been applied. ✓";
+		display: inline;
+	}
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+  function copy_to_print_helper(){
+    $('#print_helper').text($('#the_textarea').val());
+  }
+  $('#the_textarea').bind('keydown keyup keypress cut copy past blur change', function(){
+    copy_to_print_helper();
+  });
+  copy_to_print_helper();
+});
+</script>
+</head>
+<body>
+
+<h1>Print This Textarea</h1>
+
+<div class="important">
+  <p>
+    This page is similar to
+    <a href="print_textarea.html">this demo</a>,
+    which showed how CSS was insufficient to print <code>textarea</code> elements.
+    However, this page includes Javascript that copies the contents of the <code>textarea</code>
+    to an extra div that is shown only on print.
+    </p>
+</div>
+
+<textarea name="textarea" wrap="wrap" id="the_textarea">
+	Some note
+
+orem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt congue cursus. Nunc nibh augue, bibendum et interdum sed, gravida sit amet nisi. Pellentesque lacinia leo ut nibh pretium sed dapibus tellus varius. In sit amet turpis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent lacinia odio ut tellus elementum ut lacinia lectus aliquam. Etiam fringilla velit nec ligula elementum tincidunt. Sed eu neque a odio scelerisque ullamcorper id sed lorem. Sed non leo arcu. Aliquam id metus tellus, pharetra scelerisque tortor. Quisque tellus lorem, rutrum a suscipit at, vestibulum nec eros. Nulla fringilla hendrerit orci, non molestie eros mollis nec. Proin porttitor, velit eget hendrerit sollicitudin, quam leo dictum sapien, sed tincidunt eros ante ut augue. Praesent id nisl non risus mattis interdum vitae in ligula. Vivamus porta tellus a felis egestas eu eleifend nisi posuere. Vivamus pharetra fringilla pulvinar. Suspendisse eget ante vel dolor porttitor euismod. Integer sodales urna eget nisi porttitor sodales. Nullam laoreet lectus id sem tempus bibendum.
+
+Integer auctor pretium arcu, quis aliquam risus gravida eget. Sed in arcu quam. Vestibulum nibh sem, ornare nec fringilla quis, hendrerit egestas sapien. Donec lacinia vulputate metus a facilisis. Ut dapibus, augue quis egestas tincidunt, elit ligula iaculis risus, nec posuere enim nibh a justo. Vestibulum imperdiet euismod nisl, sit amet dignissim sem vehicula et. Nam non diam mauris, ac commodo orci. Duis tincidunt viverra lectus non fringilla. Integer quam leo, dapibus vel aliquam et, facilisis vel urna. Proin diam mi, laoreet lacinia ullamcorper ut, malesuada eget mi. Sed dapibus blandit magna, vel cursus sem aliquet facilisis. Sed justo felis, scelerisque ac bibendum in, egestas eget ipsum. Suspendisse auctor posuere nunc id pulvinar. Vestibulum pellentesque enim sed arcu faucibus ut pharetra mi faucibus. Vivamus commodo lacus vitae risus pellentesque hendrerit aliquet nisl viverra. Sed sed tortor quis urna venenatis congue tempor nec quam. Maecenas lobortis purus massa.
+
+Phasellus ut libero lorem, ac consequat quam. Donec mollis cursus blandit. Praesent ac mauris turpis, id dapibus nunc. Morbi eu tellus sollicitudin libero tempor ullamcorper ac sed erat. Nunc condimentum est quis sapien fringilla auctor. Fusce posuere elit non arcu commodo rhoncus posuere libero lacinia. Pellentesque a dolor ut tellus sollicitudin ultrices. Ut non magna in lectus mollis bibendum sed at massa. Mauris tempus lectus at elit tincidunt non sagittis quam sagittis. Cras porta, nibh vel auctor malesuada, est magna venenatis nibh, et fringilla massa quam non ipsum. Nunc lacinia placerat dolor eget ultrices. Phasellus non metus augue. Etiam eleifend lorem libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse dictum lacinia diam at vulputate. Curabitur id metus nisl. Quisque venenatis, ipsum at luctus interdum, urna quam cursus leo, eget gravida est libero sit amet risus. Proin faucibus lectus nec sapien aliquet et faucibus est lacinia.
+
+Sed lectus sem, scelerisque ut elementum et, luctus a felis. Donec sagittis venenatis ante, eget lobortis leo volutpat nec. Donec posuere faucibus sapien in tincidunt. Cras at enim rutrum arcu commodo tempor. Nullam sit amet suscipit sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum eros eros, sollicitudin eu viverra a, molestie sed quam. Aliquam ornare sem et lorem ultrices mollis molestie elit gravida. Duis dapibus pharetra enim, quis lacinia tellus convallis sit amet. Cras at tempor ipsum. Maecenas facilisis, mauris et porta hendrerit, mauris turpis tincidunt felis, sit amet vulputate quam erat quis urna. Sed egestas posuere erat, a sagittis leo fermentum aliquet. Maecenas condimentum arcu et sapien sodales sed sagittis libero suscipit. Mauris viverra venenatis viverra. Aliquam nec lobortis erat. Donec placerat hendrerit turpis, id egestas elit varius in.
+
+In ac ipsum dui. Quisque dui metus, ultrices sed ultrices vel, facilisis a nibh. Pellentesque ante tellus, semper ut rhoncus sit amet, auctor non turpis. Vivamus at erat at augue condimentum pulvinar. Sed malesuada hendrerit accumsan. Sed fermentum neque sit amet tortor dignissim luctus. Donec quis tortor mi, semper tincidunt leo. Praesent luctus lobortis diam eu varius. Vivamus egestas massa lectus. Curabitur sem orci, congue in imperdiet tincidunt, semper et nisl. In tristique lacinia mauris, vitae laoreet erat sagittis sit amet. Aliquam blandit varius lectus, non fringilla purus iaculis a. Nam ut condimentum elit. In vulputate, arcu porta tristique rutrum, risus nibh feugiat lorem, sit amet auctor elit odio eget odio. Proin imperdiet diam nec neque cursus bibendum. Vestibulum sed pellentesque mi. Mauris ac sem odio, vitae aliquam neque. Duis molestie nibh id tortor ullamcorper congue varius arcu mollis. Suspendisse gravida urna eu nisi viverra posuere. Cras magna quam, fringilla a fringilla non, pretium non dolor.
+
+Last line of textarea
+</textarea>
+<div id="print_helper"></div>
+
+<p>Print (preview) of this page should include &ldquo;Last line of textarea&rdquo;, <strong>because we copied the contents of the <code>textarea</code> to a helper <code>div</code> that is only displayed with the print stylesheet.</strong></p>
+  <p>
+  Print stylesheets are insufficient to print the contents of a long textarea in many or most browsers, such as Chrome 13. <a href="print_textarea.html">Proof here</a>.</p>
+
+<p><small>If this helped you, <a href="https://stackoverflow.com/questions/4435906/print-when-textarea-has-overflow/4611247#4611247">upvote my answer on StackOverflow</a>. Or <a href="https://alanhogan.com/contact?from=backticks.html">contact the test author here</a>.</small></p>
+
+</body>
+</html>

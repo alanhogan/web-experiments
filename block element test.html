@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Block element boundary test</title>
+<link rel="stylesheet" type="text/css" href="cheap-toggle.css" />
+<style type="text/css">
+p, div {
+margin: 0;
+padding: 0;
+}
+.ws_normal, 
+.ws_normal * {
+	white-space: normal;
+}
+.ws_pre-wrap ,
+.ws_pre-wrap  * {
+	white-space: pre-wrap;
+}
+</style>
+<script type="text/javascript" src="jQuery-1.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	// Generic toggle:
+	$('.toggle a').click(function(){
+		$(this).parent('.toggle').children('a').removeClass('enabled').end().end().addClass('enabled');
+		return false;
+	});
+	
+	// specific actions
+	$('#ws_toggle #ws_normal').click(function(){
+		$('#wrap').removeClass('ws_pre-wrap').addClass('ws_normal');
+	});
+	$('#ws_toggle #ws_pre-wrap').click(function(){
+		$('#wrap').removeClass('ws_normal').addClass('ws_pre-wrap');
+	});
+	
+	$('.toggle a.enabled').click();
+});
+</script>
+</head>
+<body>
+	
+<h1>Block element boundary test</h1>
+
+White-space: <span id="ws_toggle" class="toggle"><a href="#" class="enabled" id="ws_normal">Normal</a><a href="#" id="ws_pre-wrap">Pre-Wrap</a><br /></div>
+
+<div id="wrap">
+	<p>Paragraph, followed by exactly two empty paragraphs, then a non-empty paragraph.</p>	
+	<p></p>
+	<p></p>
+	<p>Fourth paragraph.</p>
+
+	<div>Div, followed by exactly two empty divs, then a non-empty div.</div>	
+	<div></div>
+	<div></div>
+	<div>Fourth div.</div>
+	<hr />
+	<p>Paragraph, followed by exactly two paragraphs with just &amp;nbsp; for content, then a non-empty paragraph.</p>	
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>Fourth paragraph.</p>
+
+	<div>Div, followed by exactly two divs with just &amp;nbsp; for content, then a non-empty div.</div>	
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>Fourth div.</div>
+
+	<hr />
+	<p>Paragraph, followed by exactly two paragraphs with just whitespace (<code>\s</code>) for content, then a non-empty paragraph.</p>
+	<p> </p>
+	<p> </p>
+	<p>Fourth paragraph.</p>
+
+	<div>Div, followed by exactly two divs with just whitespace (<code>\s</code>) for content, then a non-empty div.</div>
+	<div> </div>
+	<div> </div>
+	<div>Fourth div.</div>
+
+	<hr />
+	<p>Paragraph, followed by exactly two paragraphs with just <code>&lt;br /&gt;</code> for content, then a non-empty paragraph.</p>
+	<p><br /></p>
+	<p><br /></p>
+	<p>Fourth paragraph.</p>
+
+	<div>Div, followed by exactly two divs with just  <code>&lt;br /&gt;</code> for content, then a non-empty div.</div>
+	<div><br /></div>
+	<div><br /></div>
+	<div>Fourth div.</div>
+</div>
+
+</body>
+</html>

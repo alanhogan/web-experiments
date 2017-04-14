@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>contenteditable Test</title>
+
+<link rel="stylesheet" type="text/css" href="ce2.css" />
+<script type="text/javascript" src="jquery-1.4.js"></script>
+<script type="text/javascript" src="jQuery.toPlaintext.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.editable').attr('contenteditable', true);
+	$('.editable a').click(function(){
+		alert('(stub - would open link in new window…)');
+	});
+	$('.toggle a').click(function(){
+		$(this).parent('.toggle').children('a').removeClass('enabled').end().end().addClass('enabled');
+	});
+	var ourDom = $('#dom');
+	var ourContent = $('#editableContent');
+	var ourMethodToggle = $('#method');
+	var cdTimeout = null;
+	function copyDom(){
+		window.console&&console.log('in copyDom().');
+		cdTimeout = null;
+		var method;
+		ourMethodToggle.children('.enabled').each(function(){
+			method = $(this).attr('data-method');
+			return false; //break
+		});
+		if(method==='rawDom'){
+			ourDom.text(ourContent.html());
+		} else if(method==='asPlaintext') {
+			ourDom.text(
+				ourContent.clone().toPlaintext()
+			);
+		} else {
+			ourDom.text('(No valid method selected. Was: «'+method+'»)');
+		}
+	}
+	copyDom();
+	ourMethodToggle.click(function(){copyDom();});
+	ourContent.bind('blur keypress keydown cut paste', function(){
+		if(cdTimeout) {
+		} else {
+			cdTimeout = window.setTimeout(copyDom, 100);
+		}
+	});
+});
+</script>
+</head>
+<body>
+<a id="dropboxLink" href="http://dl.dropbox.com/u/105727/web/contenteditable2.html">Dropbox</a>
+<h1>contenteditable Test </h1>
+
+<div class="left-pane">
+	<h3>Edit this</h3>
+</div>
+<div class="right-pane">
+	<div class="toggle" id="method">
+		<a href="#" data-method="rawDom">Raw DOM</a><!--
+		--><a href="#" data-method="asPlaintext" class="enabled">Plaintext</a>
+		</div>
+</div>
+<div class="left-pane main">
+<div class="editable" id="editableContent">The contents of this div
+
+are editable by the user. <a href="http://alanhogan.com">Link to alanhogan.com</a>.
+
+Some other stuff &amp; stuff.
+</div>
+</div><!--left pane-->
+<div class="right-pane main">
+<div id="dom"></div>
+</div>
+</body>
+</html>

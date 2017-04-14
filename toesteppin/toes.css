@@ -1,0 +1,48 @@
+.pretty {
+  min-height: 30px;
+  padding: 50px;
+  margin: 15px 0;
+  /* Rounded corners*/
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  
+	/* Legacy browsers */
+	background: indianred none repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Internet Explorer */
+	*background: indianred;
+	background: indianred\0/;
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFFFFFE0, endColorstr=#FFCD5C5C);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFFFFFE0, endColorstr=#FFCD5C5C)";
+}
+@media all and (min-width: 0px) {
+	.pretty {
+		/* Opera */
+		background: indianred url("pretty-bg.svg");
+		/* Recent browsers */
+		background-image: -moz-linear-gradient(
+			top,
+			lightyellow,
+			indianred
+		);
+		background-image: -webkit-gradient(
+			linear,
+			left top, left bottom,
+			from(lightyellow),
+			to(indianred)
+		);
+	}
+}
+	
+.no-filters-ie9 {
+  filter: none !important;
+  -ms-filter: none !important;
+}
+
+.ie9 .not-ie9 {
+  display: none;
+}

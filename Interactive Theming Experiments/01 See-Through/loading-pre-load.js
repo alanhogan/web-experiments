@@ -1,0 +1,1 @@
+document.write('<style type="text/css" id="_blogic_loading">body, body>* { display: none !important; } html, body { background: transparent none !important; }</style>');

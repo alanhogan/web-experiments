@@ -1,0 +1,158 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 10, ../../app/assets/stylesheets/screen.css.scss */
+#body_wrap {
+  margin: 1em;
+}
+
+/* line 7, ../../app/assets/stylesheets/static.css.scss */
+body, h1, p {
+  font-family: "Helvetica Neue", Arial, Helvetica, FreeSans, "Nimbus Sans", "Phetsarath OT", Malayalam, "Gargi_1.7", sans-serif;
+}
+
+/* line 10, ../../app/assets/stylesheets/static.css.scss */
+code, pre {
+  font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
+}
+
+/* line 13, ../../app/assets/stylesheets/static.css.scss */
+img.fit {
+  max-width: 100%;
+}
+
+/* line 14, ../../app/assets/stylesheets/static.css.scss */
+.fit, .nofit {
+  cursor: pointer;
+}
+
+/* line 18, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-unit {
+  position: relative;
+}
+
+/* line 21, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-mask, .bubbling-source {
+  display: block;
+  border: 1px inset #555;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  font-size: 16px;
+  margin: 0;
+  font-family: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+/* line 36, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-bubble {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -o-border-radius: 1em;
+  border-radius: 1em;
+  background: lightblue;
+}
+
+/* line 40, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-erroneous-bubble {
+  color: #c00;
+}
+
+/* line 43, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-invis-brackets {
+  color: transparent;
+}
+
+/* line 50, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-unit {
+  z-index: 1;
+}
+/* line 52, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-unit .bubbling-source {
+  z-index: 4;
+}
+/* line 55, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-unit .bubbling-mask-behind {
+  z-index: 2;
+}
+
+/* line 61, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-unit {
+  height: 65px;
+}
+
+/* line 64, ../../app/assets/stylesheets/static.css.scss */
+.bubbling-source {
+  height: 50px;
+  resize: none;
+}

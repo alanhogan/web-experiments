@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test case for :invalid</title>
+<style type="text/css">
+	input {
+		border-width: 1px;
+	}
+	input:invalid { 
+		background: #f8d2d2 none;
+		color: #220404;
+		box-shadow: 0 0 5px 2px #c00 ; 
+		-moz-box-shadow: 0 0 5px 2px #c00 ; 
+		-webkit-box-shadow: 0 0 5px 2px #c00 ; 
+	}
+</style>
+</head>
+<body>
+	
+<h1>When is <code>:invalid</code> applied?</h1>
+	
+<h2>A form with an email field, a required field, and a submit button</h2>
+<form action="#" method="POST">
+	<input name="i1" type=email placeholder="Your email (opt)" value="" />
+	<input name="i2" type=text placeholder="Your name (req)" value="" required />
+	<input name="i3" type=submit value="Submit" />
+</form>		
+
+<hr />
+
+<h2>A second form with an email field, a required field, but no submit</h2>
+<form action="#" method="POST">
+	<input name="i4" type=email placeholder="Your email (opt)" value="" />
+	<input name="i5" type=text placeholder="Your name (req)" value="" required />
+</form>		
+
+<hr />
+
+<h2>A naked email field and required field with no form</h2>
+<input name="i6" type=email placeholder="Your email (opt)" value="" />
+<input name="i7" type=text placeholder="Your name (req)" value="" required />
+
+</body>
+</html>

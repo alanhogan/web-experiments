@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Array comparison</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  var rose = ['sweet'];
+  var flinchgrokkel = ['sweet'];
+  var poesy = ['sweet', 'difficult to spell'];
+  function desc(arr){
+    if(arr === []) return '[]';
+    return "['"+arr.join("', '")+"']";
+  };
+  $('#output').append(
+    $('<pre />').text('var rose = '+desc(rose)+';')
+  ).append(
+    $('<pre />').text('var flinchgrokkel = '+desc(flinchgrokkel)+';')
+  ).append(
+    $('<pre />').text('var poesy = '+desc(poesy)+';')
+  ).append(
+    $('<pre />').text('rose == flinchgrokkel // '+(rose == flinchgrokkel))
+  ).append(
+    $('<pre />').text('rose == poesy // '+(rose == poesy))
+  ).append(
+    $('<pre />').text('rose === flinchgrokkel // '+(rose === flinchgrokkel))
+  ).append(
+    $('<pre />').text('rose === poesy // '+(rose === poesy))
+  ).append(
+    $('<pre />').text('{foo:1} == {foo:1} // '+({foo:1}=={foo:1}))
+  ).append(
+    $('<pre />').text('[] == [] // '+([]==[]))
+  );
+});
+</script>
+</head>
+<body>
+
+<h1>Array comparison</h1>
+<p>There is no built-in array comparison in JavaScript.</p>
+
+<div id="output"></div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Scroll matching</title>
+<style type="text/css">
+#t1, .t1-info {
+	background: #cef;
+}
+#replace, .replace-info {
+	background: #fce;
+}
+#replace {
+	cursor: default; 
+}
+#t1, #replace{
+	height: 100px;
+	padding: 0px 5px;
+	margin: 0;
+	border: 0;
+	width: 150px;
+	font-size: 1.0em;
+	line-height: 1.2em;
+	font-family: inherit;
+	white-space: pre-wrap;
+	overflow: auto;
+}
+</style>
+<script type="text/javascript" src="jquery-1.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#replace').hide();
+	
+	$('#replace, #t1').live('click', function(){
+		$me = $(this);
+		var theScrollTop = $me[0].scrollTop;
+		
+		$me.hide();
+		if($me.attr('id')=='t1'){
+			$them = $('#replace').text($me.val()).show().focus();
+		} else {
+			$them = $('#t1').val($me.text()).show().focus();
+		}
+		// Main attraction:
+		$them[0].scrollTop = theScrollTop;
+	})
+});
+</script>
+</head>
+<body>
+<h1>Scroll matching</h1>
+	
+<textarea name="textarea" id="t1" wrap="wrap">Some content
+	
+This should be long enough that you have to scroll to see all the content
+	
+Go ahead, try it &mdash; then click in this box. It will be replaced with a static div instead.
+
+Click that.
+
+Hopefully, it will always be scrolled to exactly the same place.</textarea>
+
+<div id="replace"></div>
+
+<p>The textarea is <span class="t1-info">blue</span> and the replaced, static div is <span class="replace-info">pink</span>.</p>
+
+</body>
+</html>

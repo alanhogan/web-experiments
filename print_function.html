@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Print test page</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset=utf-8 />
+	<script type="text/javascript">
+	window._print= window.print;
+	window.print = function() {
+		document.getElementById('replace').innerHTML = 'Wham, we intercepted window.print.';
+		window._print();
+	};
+	//for IE. http://msdn.microsoft.com/en-us/library/ms536906(v=VS.85).aspx
+	window.onbeforeprint = function() {
+		document.getElementById('before_replace').innerHTML = '<p><code>window.onbeforeprint</code> executed (IE specific)</p>';
+	};
+	</script>
+	<style type="text/css" media="print">
+		.not_print {display: none;}
+		.print_only { display: block;}
+	</style>
+	<style type="text/css" media="screen,projection,handheld,tv">
+		.print_only {display: none;}
+	</style>
+</head>
+<body>
+
+<h1 id="javascript_and_printing">JavaScript and Printing</h1>
+
+<p>This page is an attempt to intercept print commands before the browser gets ’em.</p>
+
+<p>
+	<a href="javascript:window.print();">Print Document</a>
+</p>
+
+<div class="not_print">
+	<p>Print this document to see results here.</p>
+	<p><em><small>Please reload the page between attempts.</small></em></p>
+</div>
+
+<div class="print_only">
+	<div id="before_replace">(The IE-specific <code>window.onbeforeprint</code> function did not run.)</div>
+	<p id="replace">FAILURE: Our custom <code>window.print</code> function did not execute.</p>
+</div>
+
+<h3 id="results">Results</h3>
+<dl>
+	<dt>Chrome 8, OS X<dt>
+		<dd>
+			Printing via ⌘-P or File·Print does NOT trigger any code to run before printing the document.
+		</dd>
+		<dd>
+			Printing the link in the document (which calls <code>window.print()</code>) DOES
+			run our custom code before printing the document.
+		</dd>
+</dl>
+</body>
+</html>

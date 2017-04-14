@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Why not links?</title>
+	
+</head>
+<body>
+	
+	<h1>Links</h1>
+
+<p>Yahoo.</p>
+<p><a href=http://www.yahoo.com/>http://www.yahoo.com/</a></p>
+
+Note the above markup is exactly:
+<pre>&lt;p&gt;&lt;a href=http://www.yahoo.com/&gt;http://www.yahoo.com/&lt;/a&gt;&lt;/p&gt;</pre>
+
+and all tested browsers (IE7, IE8, FF, Chrome, Safari) interpret it as a normal a tag with a valid HREF attribute (including the trailing slash).
+
+<br><br>
+<em><a href="http://jsfiddle.net/alanhogan/Neznc/6/">Compare to jQuery’s “understanding”</a></em>
+
+</body>
+</html>

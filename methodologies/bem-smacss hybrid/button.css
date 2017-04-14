@@ -1,0 +1,22 @@
+// Block
+.button {
+  display: inline-block;
+}
+
+// Element
+.button__price {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 30%);
+  border-radius: 0.25em;
+}
+
+// Modifier
+.button--daily-deal {
+  color: white;
+  background-color: orangered;
+}
+
+// Modifier
+.button--sold-out {
+  text-decoration: line-through;
+}

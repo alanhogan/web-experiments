@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Backticks to Escape Attribute Values</title>
+	<style type="text/css">
+	.no {
+		color: black;
+		background: #cef;
+	}
+	.yes {
+		color: black;
+		background: #fdb;
+	}
+	td, th {
+		padding: 0.15em 0.3em;
+	}
+	</style>
+</head>
+<body>
+
+	<h1>Backticks to Escape Attribute Values</h1>
+
+	<p>If you browser supports using backticks to support
+		escaping attribute values,
+		the button below should trigger an alert dialog when clicked.
+	</p>
+
+	<button rel=button onclick=`alert( 'Yes,' + " Your browser supports backtick-escaped HTML element attribute values." ); return false;`>Click to Test</button>
+
+	<p>This looks like this: <code>&lt;button onclick=`alert( 'single quotes '+&quot;and double quotes within the attribute value&quot; );`&gt; &hellip;</code></p>
+
+
+	<p>This has implications for XSS (cross-site scripting)
+		attacks and prevention. Not all XSS prevention/scrubbing/sanitization
+		libraries treat backticks specially, and many if not most
+		HTML-escape routines fail to escape backticks.
+	</p>
+
+	<p>My understanding of the HTML specification is that backticks
+		are not valid delimiters and should be treated like any other normal character
+		(meaning, not one of <code>&lt;&nbsp;&gt;&nbsp;&quot;&nbsp;'</code>)
+		 in an HTML document.
+		</p>
+
+	<p>For reference, the following button uses double quotes to do the same thing.</p>
+
+	<button rel=button onclick="alert(&quot;This button just uses normal, double-quote attribute delimiters.&quot; ); return false;">Click to Test</button>
+
+	<p>(This page has the HTML5 doctype.)</p>
+
+	<p><small>Available at <a href="http://dl.dropbox.com/u/105727/web/backticks.html">http://dl.dropbox.com/u/105727/web/backticks.html</a></small></p>
+
+	<h3>Results</h3>
+	<table border="1" style="border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th scope=row>Chrome 10</th>
+			<td class="no">Backticks Not Supported</td>
+		</tr>
+		<tr>
+			<th scope=row>Firefox 3.6</th>
+			<td class="no" rowspan="2">Backticks Not Supported</td>
+		</tr>
+		<tr>
+			<th scope=row>Firefox 4</th>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 6</th>
+			<td class="yes" rowspan="4">Backticks Supported</td>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 7</th>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 8</th>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 9</th>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 10</th>
+			<td class="no" rowspan="2">Backticks Not Supported</td>
+		</tr>
+		<tr>
+			<th scope=row>Internet Explorer 11</th>
+		</tr>
+		<tr>
+			<th scope=row>Edge (<span title="Yes it is">It’s Notally Not IE™</span>)</th>
+			<td class="no">Backticks Not Supported</td>
+		</tr>
+		<tr>
+			<th scope=row>Opera 11</th>
+			<td class="no">Backticks Not Supported</td>
+		</tr>
+	</tbody>
+	</table>
+
+	<p><a href="https://alanhogan.com/contact?from=backticks.html">Contact the test author here.</a></p>
+</body>
+</html>

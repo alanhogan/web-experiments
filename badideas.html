@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Bad Ideas in JavaScript</title>
+
+</head>
+<body>
+	
+	<h1>Bad Ideas in JavaScript</h1>
+	<p>Things that do not work, and things that actually do.</p>
+	
+	<h3>Idea 1</h3>
+	<div id="foo">(Results will appear here, assuming everything compiles)</div>
+	
+	<h3>Idea 2</h3>
+	<div id="bar">(Results will appear here, assuming everything compiles)</div>
+	
+	<h3>Idea 3</h3>
+	<div id="baz">(Results will appear here, assuming everything compiles)</div>
+	
+	<h3>Idea 4</h3>
+	<div id="hello">(Results will appear here, assuming everything compiles)</div>
+	
+	<h3>Idea 5</h3>
+	<div id="world">(Results will appear here, assuming everything compiles)</div>
+	
+	<h3>Idea 6</h3>
+	<div id="r6">(Results will appear here, assuming everything compiles)</div>
+	
+<script type="text/javascript">
+(function(){
+  
+  // One
+  
+  var foo = function(){
+    this.dog = function(){ return 'bark!'; };
+    return this; // this lets Idea 5 work, later.
+  }
+  var results = '(failed)';
+  try {
+    results = foo.dog();
+  } catch (e) {
+    results = 'That didn\'t work! <br>'+e;
+  }
+  (document.getElementById('foo')).innerHTML = results;
+
+  // Two
+
+  var bar = function(){
+    return {
+      dog: function() {return 'woof!';}
+    };
+  }
+  var results2 = '(failed)';
+  try {
+    results2 = bar.dog();
+  } catch (e) {
+    results2 = 'That didn\'t work! <br>'+e;
+  }  
+  (document.getElementById('bar')).innerHTML = results2;
+
+  // Three
+
+  var results3 = '(failed)';
+  try {
+    results3 =  (new foo()).dog();
+  } catch (e) {
+    results3 = 'That didn\'t work! <br>'+e;
+  }  
+  (document.getElementById('baz')).innerHTML = results3;
+  
+  // four
+
+  var results4 = '(failed)';
+  try {
+    results4 =  (new bar()).dog();
+  } catch (e) {
+    results4 = 'That didn\'t work! <br>'+e;
+  }  
+  (document.getElementById('hello')).innerHTML = results4;
+
+  // Five
+
+  var results5 = '(failed)';
+  try {
+    results5 =  foo().dog();
+  } catch (e) {
+    results5 = 'That didn\'t work! <br>'+e;
+  }  
+  (document.getElementById('world')).innerHTML = results5;
+  
+  // Six
+
+  var results6 = '(failed)';
+  try {
+    results6 =  bar().dog();
+  } catch (e) {
+    results6 = 'That didn\'t work! <br>'+e;
+  }  
+  (document.getElementById('r6')).innerHTML = results6;
+})();
+
+</script>
+</body>
+</html>

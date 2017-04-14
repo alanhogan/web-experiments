@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test cases for :invalid</title>
+<meta charset=utf-8 />
+<style type="text/css">
+	input {
+		border-width: 1px;
+	}
+	input:invalid { 
+		background: #f8d2d2 none;
+		color: #220404;
+		box-shadow: 0 0 5px 2px #c00 ; 
+		-moz-box-shadow: 0 0 5px 2px #c00 ; 
+		-webkit-box-shadow: 0 0 5px 2px #c00 ; 
+	}
+	
+	input:invalid::-webkit-input-placeholder { 
+		color: #a09393;
+	}
+</style>
+</head>
+<body>
+	
+<h1>When is <code>:invalid</code> applied?</h1>
+
+<p>In my opinion, Webkit/534 applies the <code>:invalid</code> pseudo-class far too early. As soon as you start typing in an email field, it’s “invalid”. As soon as the page loads, <code>&lt;input&nbsp;required&nbsp;/&gt;</code> fields are “invalid.” 
+</p>
+
+<p>This is like telling the user they are wrong, that they have made a mistake.
+</p>
+
+<p>They haven’t.
+</p>
+
+<p>The only thing they did was open a page with HTML5 input fields.
+</p>
+	
+<h2>A form with an email field, a required field, and a submit button</h2>
+<form action="#" method="POST">
+	<input name="i1" type=email placeholder="Your email (opt)" value="" />
+	<input name="i2" type=text placeholder="Your name (req)" value="" required />
+	<input name="i3" type=submit value="Submit" />
+</form>		
+
+<hr />
+
+<h2>A second form with an email field, a required field, but no submit</h2>
+<form action="#" method="POST">
+	<input name="i4" type=email placeholder="Your email (opt)" value="" />
+	<input name="i5" type=text placeholder="Your name (req)" value="" required />
+</form>		
+
+<hr />
+
+<h2>An email field and a required field with no form</h2>
+<input name="i6" type=email placeholder="Your email (opt)" value="" />
+<input name="i7" type=text placeholder="Your name (req)" value="" required />
+
+</body>
+</html>

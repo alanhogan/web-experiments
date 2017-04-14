@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Test IE8 vs. IE9-as-IE8</title>
+	<style type="text/css">
+	body {
+		color: black; background: white;
+	}
+	pre, code {
+		font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
+	}
+	.test {
+		height: 150px;
+		width: 150px;
+		border: 1px solid black;
+		-webkit-box-shadow: inset 1px 1px 0 #fff;
+		-moz-box-shadow: inset 1px 1px 0 #fff;
+		-ms-box-shadow: inset 1px 1px 0 #fff;
+		-o-box-shadow: inset 1px 1px 0 #fff;
+		box-shadow: inset 1px 1px 0 #fff;
+		background: rgba(50,200,50, 0.8) url(bg-loaded.png);
+		background-repeat: no-repeat;
+	}
+	.blah  a:last-of-type {
+		display: none;
+	}
+	del {
+		text-decoration: line-through;
+		background: rgb(100%, 90%, 90%);
+	}
+	ins {
+		text-decoration: none;
+		background: rgb(90%, 100%, 90%);
+	}
+	</style>
+</head>
+<body>
+	<h1>Testing</h1>
+	<pre><code class="css">.test {
+	// (height, width, border) …
+	<b>background: rgba(50,200,50, 0.8) url(bg-loaded.png);</b>
+}</code></pre>
+	<div class="test">&nbsp;</div>
+	<p>If the above div has a green background (as opposed to none/white), your browser understands <code>rgba()</code> color notation;
+	if it reads “Background Loaded ✓” then the image defined in the same CSS declaration as the <code>rgba()</code> color
+	has been loaded.</p>
+
+
+	<p>Just for reference, here’s Webkit/Chrome 8 <ins>(IE9 RC “IE9 standards mode” is similar)</ins>: <br />
+		<img src="8vs9-as-8/Webkit_rendering.png"  width="152" height="152" border="0" />
+		</p>
+</body>
+</html>

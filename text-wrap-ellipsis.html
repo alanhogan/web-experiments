@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>text-overflow tests</title>
+<style type="text/css">
+body {
+  color: black;
+  background: white;
+}
+blockquote {
+  color: #666;
+}
+* {
+  line-height: 1.2em;
+}
+
+.container {
+  max-width: 15em;
+  min-width: 10em;
+}
+p {
+  padding: 2px 5px;
+}
+p.test2, p.test, p.test3 {
+	border: 1px solid #000000;
+	width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+p.test {
+	white-space: nowrap;
+}
+p.test2 {
+  max-height: 2.4em;
+}
+p.test3 {
+	width: 5em;
+}
+</style>
+</head>
+<body>
+	
+	<h1>text-overflow tests</h1>
+	<div class="container">
+	  <h3>Test 1</h3>
+	 <p class="test">Test element with word-wrap: nowrap; as well as text-overflow:ellipsis;</p>
+	  <h3>Test 2</h3>
+	 <p class="test2">Test element with maximum dimensions (max-height and explicit width) but no "nowrap" property. Also has text-overflow:ellipsis;</p>
+	  <h3>Test 3</h3>
+	  <p class="test3">short short short loooooooooooooooooooong short short looooooooooong short short</p>
+	</div>
+	<h3>Explanation</h3>
+	<div>
+	 The first element has <code>word-wrap:no-wrap;</code> as well as a set width and overflow: hidden. This is a textbook case of when <code>text-overflow: ellipsis</code> should be visible (works in IE6+, Webkit, and Opera, but not yet Firefox a/o FF4b9).<br><br>
+	 The second element is styled exactly the same except that it omits any <code>word-wrap</code> declaration at all, but it has a <code>max-height</code> of 2.4em. So text is definitely being clipped, but you can’t see it in my browser (Chrome 8 / OS X), despite the <a href="http://dev.w3.org/csswg/css3-ui/#text-overflow0">current draft</a> of CSS3-UI implying that there is at least a good chance that text-overflow should be invoked (emphasis mine):<br>
+	 <blockquote>This property specifies the behavior <strong>when text overflows a block-level element</strong> that has ‘overflow’ other than ‘visible’. Text may overflow <strong>for example</strong> when it is prevented from wrapping (<strong>e.g.</strong> due to ‘white-space:nowrap’ or a single word is too long to fit).</blockquote><br><br>
+	 The third test is a test to see whether more than one word that is too long can get the ellipsis treatment.<br><br>
+	 <small><a href="http://dl.dropbox.com/u/105727/web/text-wrap-ellipsis.html">(This file on Dropbox)</a></small>
+	</div>
+	
+</body>
+</html>

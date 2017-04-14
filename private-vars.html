@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>private vars in JS</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+// Using jQuery as $
+$(function(){ // run when document loaded
+  var NS = {}; // some namespace, see? Has little to do with anything…
+  (function(){
+    // Private vars
+    var somelist = ['Emily', 'Chelsey', 'Sarah', 'Rachel'];
+    
+    NS.people = {
+      addPerson: function (name) {
+        somelist.push(name);
+      },
+      listPeople: function() {
+        return somelist.join(', ')+'.';
+      }
+    };
+  })();
+  var $o = $('#output');
+  
+  $o.append($('<li />').text('Initial list: '+NS.people.listPeople()));
+  $o.append($('<li />').text('(Adding Kelley…)'));
+  NS.people.addPerson('Kelley');
+  $o.append($('<li />').text('Now list is: '+NS.people.listPeople()));
+  $o.append($('<li />').text('Can we access `somelist`? No, but let’s try:'));
+  try {
+    $o.append($('<li />').text('NS.people.somelist: '+NS.people.somelist +
+      '; window.somelist: '+window.somelist
+      ));
+  } catch (e) {
+    $o.append($('<li />').text(''+e));
+  }
+});
+</script>
+</head>
+<body>
+	
+	<h1>private vars in JS</h1>
+	<p>See <a href="http://www.crockford.com/javascript/private.html">Crockford’s piece</a>. I think this demo is a hell of a lot simpler / easier to follow though, if you know anything about JavaScript variable scope &amp; closures.</p>
+<pre><code class="js">
+// Using jQuery as $
+$(function(){ // run when document loaded
+  var NS = {}; // some pseudo-namespace, see? Has little to do with anything…
+  (function(){
+    // Private vars
+    var somelist = ['Emily', 'Chelsey', 'Sarah', 'Rachel'];
+    
+    NS.people = {
+      addPerson: function (name) {
+        somelist.push(name);
+      },
+      listPeople: function() {
+        return somelist.join(', ')+'.';
+      }
+    };
+  })();
+  var $o = $('#output');
+  
+  $o.append($('&lt;li /&gt;').text('Initial list: '+NS.people.listPeople()));
+  $o.append($('&lt;li /&gt;').text('(Adding Kelley…)'));
+  NS.people.addPerson('Kelley');
+  $o.append($('&lt;li /&gt;').text('Now list is: '+NS.people.listPeople()));
+  $o.append($('&lt;li /&gt;').text('Can we access `somelist`? No, but let’s try:'));
+  try {
+    $o.append($('&lt;li /&gt;').text('NS.people.somelist: '+NS.people.somelist +
+      '; window.somelist: '+window.somelist
+      ));
+  } catch (e) {
+    $o.append($('&lt;li /&gt;').text(''+e));
+  }
+});
+</code></pre>
+
+	<div id="output"></div>
+</body>
+</html>

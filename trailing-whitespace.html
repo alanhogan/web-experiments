@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>More Whitespace Testing</title>
+<style type="text/css">
+	span {background: hsla(30, 90%, 50%, 0.6) none;}
+	span + span {background: hsla(120, 90%, 50%, 0.6) none;}
+</style>
+</head>
+<body>
+	
+	<h1>More Whitespace Testing</h1>
+	<p>Three paragraphs follow, the first and last containing a trailing space. Is the space visible (on selection)? No.</p>
+	
+	<p>foo </p><p>foo</p><p>foo </p>
+	
+	
+	<p>Three paragraphs follow, the first and last containing a trailing space <strong>contained in a span</strong>. Is the space visible (on selection, or with an orange background thanks to style applied to <code>span</code>)? No.</p>
+	
+	<p>foo<span> </span></p><p>foo</p><p>foo<span> </span></p>
+	
+	<p>One paragraph follows with the sequence <code>Foo &lt;span&gt; &lt;span&gt;bar&lt;/span&gt; &lt;/span&gt; &lt;span&gt; baz &lt;/span&gt;</code></p>
+	<p>Foo <span> <span>bar</span> </span> <span> baz </span></p>
+	
+	
+</body>
+</html>

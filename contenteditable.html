@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>contenteditable Test</title>
+
+<style type="text/css">
+.editable {
+	font-size: 1.0em;
+	line-height: 1.2em;
+	font-family: inherit;
+	white-space: pre-wrap;
+	max-height: 80%;
+	overflow: auto;
+	border: 1px solid #808080;
+}
+.left-pane, .right-pane {
+	width: 50%;
+	margin: 0;
+	padding: 0;
+}
+.left-pane {
+	float: left;
+	min-height: 10em;
+}
+.right-pane {
+	float: right;
+	min-height: 10em;
+	background: hsl(300, 100%, 95%);
+}
+.right-pane #dom {
+	white-space: pre-wrap;
+	margin: 0; padding: 0;
+	width: 100%;
+	border: none;
+	height: 80%;
+	display: block;
+	-webkit-box-shadow: 0 0 2px #08f;
+}
+</style>
+<script type="text/javascript" src="jquery-1.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.editable').attr('contenteditable', true);
+	$('.editable a').click(function(){
+		alert('(stub - would open link in new window…)');
+	});
+	var ourDom = $('#dom');
+	var ourContent = $('#editableContent');
+	function copyDom(){
+		ourDom.text(ourContent.html());
+		window.setTimeout(copyDom, 250);
+	}
+	window.setTimeout(copyDom, 250);
+});
+</script>
+</head>
+<body>
+	
+<h1>contenteditable Test</h1>
+
+<div class="left-pane">
+<div class="editable" id="editableContent">The contents of this div
+
+are editable by the user. <a href="http://alanhogan.com">Link to alanhogan.com</a>.
+
+Some other stuff.
+
+<ul><li>Item 1
+<li>Item 2</ul>
+</div>
+</div><!--left pane-->
+<div class="right-pane">
+<div id="dom"></div>
+</div>
+</body>
+</html>

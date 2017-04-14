@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Testing Solution</title>
+	<style type="text/css">
+	body {color: black; background: white;}
+	.grey {
+	  color: #888;
+	}
+</style>
+</head>
+<body>
+	
+	<h1>Testing Solution</h1>
+	Running <a href="http://stackoverflow.com/questions/5007574/rendering-plaintext-as-html-maintaining-whitespace-without-pre/5047731#5047731">this suggestion</a> on this text:
+	<pre><code>First line\n    Second line, indented    four spaces\n   Three   spaces
+<span class=grey>123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;</span></code></pre>
+<h3>Result</h3>
+<p></p>
+	<div><code>
+	<script type="text/javascript">
+	var text = 'First line\n    Second line, indented    four spaces\n   Three   spaces';
+	
+	var charEncodings = {
+      "\t": "&nbsp;&nbsp;&nbsp;&nbsp;",
+      " ": "&nbsp;",
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\n": "<br />",
+      "\r": "<br />"
+  };
+  var space = /[\t ]/;
+  var noWidthSpace = "&#8203;";
+  function textToHTML(text)
+  {
+      text = (text || "") + "";  // make sure it's a string;
+      text = text.replace(/\r\n/g, "\n");  // avoid adding two <br /> tags
+      var html = "";
+      var lastChar = "";
+      for (var i in text)
+      {
+          var char = text[i];
+          var charCode = text.charCodeAt(i);
+          if (space.test(char) && !space.test(lastChar) && space.test(text[i + 1] || ""))
+          {
+              html += noWidthSpace;
+          }
+          html += char in charEncodings ? charEncodings[char] :
+          charCode > 127 ? "&#" + charCode + ";" : char;
+          lastChar = char;
+      }
+      return html;
+  }  
+  document.write(textToHTML(text));
+	</script><br /><span class=grey>123456789&bull;123456789&bull;123456789</span>
+	</div></code>
+	
+	<h2></h2>
+</body>
+</html>

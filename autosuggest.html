@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Test AutoSuggest</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<link rel="stylesheet" href="autoSuggestv14/autoSuggest.css" type="text/css" />
+	<script type="text/javascript" src="autoSuggestv14/jquery.autoSuggest.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var plain_data = ['aardvark', 'alphabet', 'foo', 'bar', 'alabama', 'freak', 'food', 'gorillas', 'bananas', 'catamount' ];
+		var data = [];
+		for(var i in plain_data){
+			data[i] = {value:plain_data[i]};
+		}
+		var as_options = {
+			startText: 'Tag…'
+		};
+		$("#type_tags").autoSuggest(data, as_options);
+		$('#data_echo').html(plain_data.join("\n<br />"));
+	});
+	</script>
+</head>
+<body>
+	<h1>Test AutoSuggest</h1>
+	<p>Using a <a href="http://code.drewwilson.com/entry/autosuggest-jquery-plugin">plugin by Drew Wilson</a></p>
+	<input type="text" id="type_tags" />
+	<h3>Data list</h3>
+	<p id="data_echo" style="-webkit-column-count: 3;"></p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>    This is a     
+  BAD title, this &lt; that.</title>
+<style type="text/css">
+	.output {
+	  width: 90%;
+	}
+</style>
+<script type="text/javascript">
+function copy_val(){
+  var title = (document.getElementsByTagName('title'))[0];
+  document.getElementById('output_raw').value = title.innerHTML;
+  document.getElementById('output_nice').value = (title.textContent || title.innerText).replace(/\s+/g, ' ').replace(/^[ ]*([^ ].*[^ ])[ ]*$/, '$1');
+}
+</script>
+</head>
+<body>
+	
+	<h1>JavaScript and bad titles!</h1>
+	
+	<input type=button onclick="copy_val();" value="Show Page Title" />
+	
+	<dl>
+  	<dt>Title inner HTML</dt>
+  	<dd><input type=text class=output 
+  	  id="output_raw" value="(Click button)" disabled /></dd>
+  	<dt>Title as a browser sees it</dt>
+  	<dd><input type=text class=output 
+  	  id="output_nice" value="(Click button)" disabled /></dd>
+  </dl>
+	
+</body>
+</html>

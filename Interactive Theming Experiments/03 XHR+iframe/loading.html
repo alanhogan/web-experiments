@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Loading experiment 03</title>
+<style type="text/css">
+html, div {
+  padding: 0; margin: 0;
+}
+body {
+  background: #e0e8ff none;
+  padding: 0; margin: 0;
+}
+#bottom_background, #bottom {
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#bottom_background {
+  text-align: center;
+}
+#bottom_background>:first-child {
+  margin-top: 2em;
+}
+#semiforeign_area {
+  width: 100%;
+  height: 100%;
+  padding: 0; margin: 0;
+}
+#top {
+  height: 100px;
+  overflow: auto;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $.ajax('simple-inner.html', {
+    success: function(data, textStatus, jqXHR){
+      window.console&&console.log(data, textStatus, jqXHR);
+      window.console&&console.log("data is: " + typeof data);
+      xmlString = ""; //GET string via ajax or whatever the case might be
+
+      if (window.DOMParser){
+        parser=new DOMParser();
+        xmlDoc=parser.parseFromString(data,"text/xml");
+      }
+      else {  // For IE
+        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async="false";
+        xmlDoc.loadXML(data); 
+      }
+      var $doc = $(xmlDoc);
+      window.console&&console.log("Size of $doc is: " + $doc.size());
+      $doc.each(function(i, el) {
+        window.console&&console.log(el);
+      });
+      var $head = $doc.find('head');
+      window.console&&console.log($head.size());
+      window.console&&console.log('Head html: ', $head[0].innerHTML);
+      //var $body = $doc.find('body');
+      //$("#semiforeign_area").contents().find('head').html($head.html()).end().find('body').html($body.html());
+      
+    },
+    error: function() {
+      alert('error');
+      window.console&&console.log(jqXHR, textStatus, errorThrown);
+    }
+  });
+  
+});
+</script>
+</head>
+<body>
+<div id="top">
+	<h1>Loading experiment 03</h1>
+</div>
+<div id="bottom_background"><h3>Loading</h3></div>
+<div id="bottom">
+  <iframe id="semiforeign_area" allowtransparency=true frameborder=0 src="about:blank"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Test Gruberizer</title>
+	<script src="jquery.js"></script> 
+	<script type="text/javascript" src="jQuery.linkURLs.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('#ex1, #ex2, #ex3').linkURLs();
+	});
+	</script>
+</head>
+<body>
+<h1>linkURLs: A jQuery plugin to parse plaintext URLs</h1>
+
+<h3>Example Usage</h3>
+<pre><code>$('#plain_text').linkURLs();</code></pre>
+Pretty much it.
+
+<h3>Demos</h3>
+
+<p id="ex1">This paragraph contains a plain text url of http://duckduckgo.com/ and a reference to tinyurl.com/mkdn-dingus.</p>
+
+<p id="ex2">This paragraph includes manual line breaks
+	<br />
+	and a url of alanhogan.com.<br />
+	But that’s a scanty URL to go on, so here’s http://alanhogan.com and www.alanhogan.com.</p>
+
+</body>
+</html>

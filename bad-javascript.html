@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Bad Javascript!</title>
+
+</head>
+<body>
+
+	<h1>Bad Javascript!</h1>
+
+	<h3>CoffeeScript source</h3>
+<pre>
+# jQuery references we'll use more than once
+$body = $('body')
+
+# Set the state of the interface by adding themer-state-XX as a class on body, and clearing others.
+set_state = (state) ->
+  window.alert('Requested state: '+state)
+  # States:
+  #
+  # 00. Prompting for input
+  # 01. (Reserved for re-theming)
+  # 10. Beginning theme process
+  # 20. Theme actively loading
+  # 30. Initial preview loaded
+  # 40. Element selected
+  # 50. Content replaced with dummy content
+  # 60. Saving
+  states = '00 01 10 20 30 40 50 60'.split(' ')
+  as_class = (str) -> 'themer-state-'+str
+  state_classes = (as_class(state) for state in states)
+  $body.removeClass(state_classes.join ' ') # can pass as one space-separated list
+  $body.addClass as_class(state)
+  window.alert('Set state: '+state+' (should be the same as before)')
+
+# Initial page load, so
+set_state '00'</pre>
+
+<h3>Output JavaScript</h3>
+<pre>var $body, set_state;
+$body = $('body');
+set_state = function(state) {
+  var as_class, state, state_classes, states;
+  window.alert('Requested state: ' + state);
+  states = '00 01 10 20 30 40 50 60'.split(' ');
+  as_class = function(str) {
+    return 'themer-state-' + str;
+  };
+  state_classes = (function() {
+    var _i, _len, _results;
+    _results = [];
+    for (_i = 0, _len = states.length; _i &lt; _len; _i++) {
+      state = states[_i];
+      _results.push(as_class(state));
+    }
+    return _results;
+  })();
+  $body.removeClass(state_classes.join(' '));
+  $body.addClass(as_class(state));
+  return window.alert('Set state: ' + state + ' (should be the same as before)');
+};
+set_state('00');</pre>
+
+<h3>Run…</h3>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">function test_it(){
+  var $body, set_state;
+  $body = $('body');
+  set_state = function(state) {
+    var as_class, state, state_classes, states;
+    window.alert('Requested state: ' + state);
+    states = '00 01 10 20 30 40 50 60'.split(' ');
+    as_class = function(str) {
+      return 'themer-state-' + str;
+    };
+    state_classes = (function() {
+      var _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = states.length; _i < _len; _i++) {
+        state = states[_i];
+        _results.push(as_class(state));
+      }
+      return _results;
+    })();
+    $body.removeClass(state_classes.join(' '));
+    $body.addClass(as_class(state));
+    return window.alert('Set state: ' + state + ' (should be the same as before)');
+  };
+  set_state('00');
+}</script>
+<button name="test-it" value="test-it" onclick="test_it();">
+	Test It
+</button>
+
+
+
+
+
+
+
+<h3>JavaScript</h3>
+<pre>var $body, set_state;
+$body = $('body');
+set_state = function(state) {
+  var as_class, state, state_classes, states;
+  window.alert('Requested state: ' + state);
+  states = '00 01 10 20 30 40 50 60'.split(' ');
+  as_class = function(str) {
+    return 'themer-state-' + str;
+  };
+  state_classes = (function() {
+    var _i, _len, _results, state;
+    _results = [];
+    for (_i = 0, _len = states.length; _i &lt; _len; _i++) {
+      state = states[_i];
+      _results.push(as_class(state));
+    }
+    return _results;
+  })();
+  $body.removeClass(state_classes.join(' '));
+  $body.addClass(as_class(state));
+  return window.alert('Set state: ' + state + ' (should be the same as before)');
+};
+set_state('00');</pre>
+
+<h3>Run…</h3>
+<script type="text/javascript">function test_fixed(){
+  var $body, set_state;
+  $body = $('body');
+  set_state = function(state) {
+    var as_class, state, state_classes, states;
+    window.alert('Requested state: ' + state);
+    states = '00 01 10 20 30 40 50 60'.split(' ');
+    as_class = function(str) {
+      return 'themer-state-' + str;
+    };
+    state_classes = (function() {
+      var _i, _len, _results, state;
+      _results = [];
+      for (_i = 0, _len = states.length; _i < _len; _i++) {
+        state = states[_i];
+        _results.push(as_class(state));
+      }
+      return _results;
+    })();
+    $body.removeClass(state_classes.join(' '));
+    $body.addClass(as_class(state));
+    return window.alert('Set state: ' + state + ' (should be the same as before)');
+  };
+  set_state('00');
+}</script>
+<button name="test-fixed" value="test-fixed" onclick="test_fixed();">
+	Test Fixed Version
+</button>
+
+
+</body>
+</html>

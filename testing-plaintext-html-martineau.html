@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Testing Solution</title>
+	<style type="text/css">
+	body {color: black; background: white;}
+	.grey {
+	  color: #888;
+	}
+</style>
+</head>
+<body>
+	
+	<h1>Testing Solution</h1>
+	Running <a href="http://stackoverflow.com/questions/5007574/rendering-plaintext-as-html-maintaining-whitespace-without-pre/5008036#5008036">this suggestion</a> on this text:
+	<pre><code>First line\n    Second line, indented    four spaces\n   Three   spaces
+<span class=grey>123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;123456789&bull;</span></code></pre>
+<h3>Result</h3>
+<p></p>
+	<div><code>
+	<script type="text/javascript">
+	var text = 'First line\n    Second line, indented    four spaces\n   Three   spaces';
+	
+  //+ Jonas Raoni Soares Silva
+  //@ http://jsfromhell.com/string/wordwrap [rev. #2]
+
+  // String.wordWrap(maxLength: Integer, [breakWith: String = "\n"], [cutType: Integer = 0]): String
+  //
+  //     Returns an string with the extra characters/words "broken".
+  //
+  //         maxLength maximum amount of characters per line
+  //         breakWith string that will be added whenever it's needed to break the line
+  //         cutType: 0 = words longer than "maxLength" will not be broken
+  //                  1 = words will be broken when needed
+  //                  2 = any word that trespass the limit will be broken
+
+  String.prototype.wordWrap = function(m, b, c){
+      var i, j, l, s, r;
+      if(m < 1)
+          return this;
+      for(i = -1, l = (r = this.split("\n")).length; ++i < l; r[i] += s)
+          for(s = r[i], r[i] = ""; s.length > m; r[i] += s.slice(0, j) + ((s = s.slice(j)).length ? b : ""))
+              j = c == 2 || (j = s.slice(0, m + 1).match(/\S*(\s)?$/))[1] ? m : j.input.length - j[0].length
+              || c == 1 && m || j.input.length + (j = s.slice(m).match(/^\S*/)).input.length;
+      return r.join("<br />");
+  };
+  document.write(text.wordWrap());
+	</script><br /><span class=grey>123456789&bull;123456789&bull;123456789</span>
+	</div></code>
+	
+</body>
+</html>

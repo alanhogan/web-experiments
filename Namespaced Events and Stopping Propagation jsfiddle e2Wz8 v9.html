@@ -1,0 +1,61 @@
+<!-- saved from http://fiddle.jshell.net/e2Wz8/9/show/ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title> - jsFiddle demo</title>
+<script type='text/javascript' src='https://code.jquery.com/jquery-1.6.js'></script>
+<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+<style type='text/css'>
+pre {
+font-family: inherit;
+}
+body {
+font-family: helvetica, arial;
+color: black;
+background-color: white;
+}
+body.orange {
+background-color: #f92;
+}
+h3 {
+font-weight: bold;
+</style>
+<script type='text/javascript'>
+//<![CDATA[
+$(function(){
+function clickedme(e){
+$('pre').append('In clickedme\n');
+$('body').addClass('orange');
+$(document).bind('click.orange', function(){
+$('pre').append('ORANGE!\n');
+$(document).unbind('click.orange');
+$('body').removeClass('orange');
+});
+$('pre').append('Finished executing clickedme\n');
+e.preventDefault();
+e.stopImmediatePropagation();
+e.stopPropagation();
+}
+$('body').delegate('.clickme', 'click',
+function(event){
+$('pre').append('Click event on .clickedme\n');
+clickedme(event);
+$('pre').append('Exiting event on .clickedme\n');
+}
+);
+});
+//]]>
+</script>
+</head>
+<body>
+<p><a href="#" class="clickme">This is <code>a.clickme</code></a>
+</p>
+<p>Clicking the above link toggles the document's orange state — clicking the document in 'orange state' should add 'ORANGE!' to the log, below.</p>
+<br />
+<h3>Log</h3>
+<pre></pre>
+</body>
+</html>

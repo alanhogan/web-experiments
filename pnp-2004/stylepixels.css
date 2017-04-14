@@ -1,0 +1,309 @@
+/*color scheme: darker blue #049 (was #069); bright blue #09f; light blue #def; xtra lite blue #eef6ff; orange #ff6600; white; and black; */
+
+
+p {
+ text-indent: 1.5em;
+ margin-top: .5ex;
+ margin-bottom: .2ex;
+ line-height: 150%;
+ text-align: justify;
+}
+
+@media screen,handheld,screen,projection {
+ body { 
+  padding: 0px;
+  margin: 0px;
+  background-color:white;
+  background-image:none;
+  font-family: verdana, sans-serif;
+ }
+}
+
+#errors {
+	color: white;
+	background: #cc0000 url('http://www.pixelsandpages.com/test/skins/default/all/warning-stripe.gif') repeat-y scroll top left; 
+	border-bottom: 2px solid white;
+	padding: 6px 6px 6px 34px;
+	font-weight: bold;
+	font-family: 'bitstream vera sans', arial, sans-serif;
+}
+#errors p {
+	margin: 0px;
+	text-indent: 0px;
+	padding: 0px;
+}
+#errors a:link {
+	color: white;
+}
+#errors a:visited {
+	color: #ffc0c0;
+}
+#errors a:hover, #errors a:focus{
+	background-color: #a20000;
+}
+
+h1, h2 {
+ font-family: serif;
+ color: #049;
+ text-align: center;
+ margin-top: .8ex;
+ margin-bottom: .6ex; 
+}
+h3, h4, h5, h6 {
+ font-family: serif;
+ color: #049;
+ text-align: left;
+ margin-top: 1ex;
+ margin-bottom: .6ex; 
+ /*font-size: 120%;    may make them all same size..*/
+}
+
+@media screen, projection {
+ div.content {
+  margin: 0px 0px 0px 0px;
+  padding: 10px 1.0em .5ex 1em;
+  background-color: white;
+ }
+}
+@media handheld {
+ div.content {
+  margin: 0px 0px 0px 0px;
+  padding: 10px .4em .5ex .4em;
+  background-color: white;
+ }
+}
+
+/*background-image: url(images/gradient.gif);
+ background-repeat: repeat-x;
+ background-position:center top; 
+*/
+
+.left {
+ text-align: left;
+}
+.center {
+ text-align: center;
+}
+.right {
+ text-align: right;
+}
+
+/*li { 
+ font-family: arial, sans-serif; 
+}*/
+ul {
+ line-height: 130%; 
+}
+ol {
+ line-height: 130%; 
+}
+
+/*A HREF'S*/
+ a:link { color: #049; font-weight:bold;}
+ a:visited { color: #049; font-weight:bold; }
+ a:hover { color: #09f; }
+ a:focus { color: #09f; }
+ a:active { color: #09f; }
+
+/*NO BORDER ON [LINKED] IMGs*/
+img {
+ border-top-width: 0px;
+ border-right-width: 0px; 
+ border-bottom-width: 0px; 
+ border-left-width: 0px; 
+}
+
+.tableNothing {
+ margin: 0px;
+ border-width: 0px;
+ padding:0px;
+}
+.tableNothing td {
+ margin: 0px;
+ border: 0px solid white;
+ padding:0px;
+}
+
+p.copyright {
+ margin-top:1.5ex;
+ font-size:80%;
+ line-height:100%;
+}
+
+/*
+.content a:link:after, .content a:visited:after {
+   content: " (" attr(href) ") ";
+   font-size: 90%;
+   }
+
+.content a[href^="/"]:after {
+  content: " (http://www.alistapart.com" attr(href) ") ";
+   }
+ */
+
+
+
+table.topNav {
+ border: 0px solid #fff;
+ border-top: 2px solid #fff;
+ margin: 0px;
+ padding:0px;
+}
+td.topNav{ 
+ background-color: #09f;
+ margin: 0px;
+ padding:0px;
+ border: 0px solid #fff;
+}
+td.topActive{
+ background-color: #fff;
+ margin: 0px;
+ padding:0px;
+ border: 0px solid #fff;
+}
+table.bottomNav {
+ border: 0px solid #fff;
+ border-bottom : 2px solid #09f;
+ margin: 0px;
+ padding:0px;
+}
+td.bottomNav{
+ background-color: #fff;
+ margin: 0px;
+ padding:0px;
+ border: 0px solid #fff;
+}
+td.bottomActive{
+ background-color: #fda;
+ margin: 0px;
+ padding:0px;
+ border: 0px solid #fff;
+}
+
+/*:link, a.definition:visited, a.definition:hover, a.definition:focus; a.definition:active*/
+/*a.definition {
+ font-weight: normal;
+}*/
+
+h1.vote,h2.vote,h3.vote {color:#cc0000;}
+h3.vote{border-top:1px #c00 dashed;}
+h4.vote {padding-left:.4em;border-left:.8em #cc0000 solid;}
+
+/* from here on down, NETSCAPE NAV 4 WILL IGNORE! */
+/*/*/
+
+
+@media screen, handheld, projection {
+ a.definition {
+  text-decoration: none;
+  border-bottom : 1px dotted #09f;
+ }
+}
+@media print {
+ a.definition {
+  text-decoration: none;
+  border-bottom: 1pt dotted #09f;
+ }
+}
+
+.topArea{
+ margin:0px;
+ padding:20px;
+ border-width:0px;
+ background-color:#049;
+ background-image:url(/images/side-pixels.gif);
+ background-position: bottom right;
+ background-repeat: no-repeat;
+}
+@media screen,handheld,projection {
+  .topArea * {
+   color: #def;
+   font-family:arial,sans-serif;
+   padding: 0px;
+  }
+  .topArea h1 {
+   margin-top: 0px;
+   margin-bottom: 6px;
+   font-size: 36px;
+   letter-spacing:2px;
+   text-align:left;
+  }
+  .topArea h2 { 
+   margin-bottom: 0px;
+   margin-top: 6px;
+   font-size: 29px;
+   font-weight: normal;
+   color: #fff;
+   letter-spacing:1px;
+   text-align: left;
+  }
+}
+.topLogo {
+ margin: 0px 20px 0px 0px;
+ border: 2px solid #def;
+}
+a:link .topLogo, a:visited .topLogo {
+ border: 2px solid #def
+}
+a:hover .topLogo, a:focus .topLogo {
+ border: 2px solid #fff;
+}
+a:active .topLogo {
+ border: 2px solid #fff;
+}
+
+/* THE FLOATRIGHT FOR Q AND A */
+
+.floatRight {
+ float: right;
+ clear: right;
+ margin: 1px 1px 2px .7em;
+ width: 35%;
+ padding: 3px;
+ background-color: #def;
+ border: 2px dashed #09f;
+}
+.floatLeftInvisible {
+ float: left;
+ clear: left;
+ margin: 0px;
+ width: 1px;
+ height: 1px;
+ overflow: hidden;
+}
+.floatRight p {
+ text-indent: 5px;
+}
+.q {
+}
+.a {
+ font-size: 90%;
+}
+.floatRight b {
+ font-size: medium;
+}
+
+#topLoginBanner{
+  margin: 0px;
+  padding: .1em .5em .2em;
+  color:white;
+  background-color: #09f;
+}
+#topLoginBanner a:hover {
+  color:white;
+}
+#topLoginBanner * {
+display:inline;margin: 0px;
+}
+#topLoginBanner input {
+ margin-bottom: -0.2em;
+ margin-top: -0.4em;
+ border: 1px solid #049;
+ -moz-border-radius-topleft: 9px;
+ -moz-border-radius-bottomright: 9px;
+ border-top-left-radius: 9px;
+ border-bottom-right-radius: 9px;
+}
+.hide {
+  display: none !important;
+}

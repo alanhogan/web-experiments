@@ -1,0 +1,53 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+<title>Audio Tags</title> 
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.5.2.js'></script> 
+
+<link rel="stylesheet" type="text/css" href="/css/normalize.css"> 
+<link rel="stylesheet" type="text/css" href="/css/result-light.css"> 
+
+<style type='text/css'> 
+body {
+    text-align: center;
+    background-color: snow;
+    color: black;
+}
+#main_image{
+  cursor: pointer;
+}
+</style> 
+
+<script type='text/javascript'> 
+//<![CDATA[ 
+$(window).load(function(){
+    var audiofiles = [
+      'http://alanhogan.com/files/perm/14412__LogLux__sb_klingklang2_134.wav',
+    'http://alanhogan.com/files/perm/42899__FreqMan__Canon_DOS_D30_no_focus_.wav',
+    'http://alanhogan.com/files/perm/83006__matbris__clip_clap.mp3'
+      // All *but* last item need a trailing comma
+  ];
+ 
+  $('#main_image').click(function(){
+      // pick a random sound
+      var audio_src;
+      audio_src = audiofiles[Math.floor(Math.random()*(audiofiles.length))];
+      $('.audiothingies').empty().append(
+          $('<audio>').attr('src', audio_src).attr('autoplay',true)
+      );
+  });
+});
+//]]> 
+</script> 
+  
+</head> 
+<body> 
+  <div class="audiothingies"></div> 
+<img src="http://alanhogan.com/files/perm/kate.png" 
+alt="Click to play" title="Click to play" id="main_image" border="0" /> 
+ 
+  
+</body>
+</html> 

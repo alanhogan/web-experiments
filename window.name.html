@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Test window.name</title>
+  
+</head>
+<body>
+  
+  <h1>Test window.name</h1>
+  <h3>Step 2: External domain</h3>
+
+  <p>Is the window.name the same?</p>
+  <div id="showLog"></div>
+  
+  <br><br>
+  <a href="http://jsfiddle.net/alanhogan/m5dBD/show/">Continue to step 3</a>
+
+  </body>
+  <script>
+  var note, testName;
+
+  note = function(msg) {
+    var sl;
+    sl = document.getElementById('showLog');
+    return sl.innerHTML = sl.innerHTML + '<p>' + msg + '</p>';
+  };
+
+  testName = 'frodo';
+
+  note("Window name is: " + window.name);
+
+  //note("Window name being set to: " + testName);
+  //window.name = testName;
+  //note("Window name is now: " + window.name);
+  </script>
+</html>

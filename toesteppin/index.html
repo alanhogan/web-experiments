@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset=utf-8 />
+	<title>IE garbage v2</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel=stylesheet href=toes.css />
+</head>
+<body>
+	
+	<h1>Legacy IEs + IE9 = toesteppin’</h1>
+	
+	<p class="not-ie9"><strong>You should view this page in IE9.</strong></p>
+	
+	<h3>Naïve</h3>
+	<p>Originally, IE9 betas didn’t honor the legacy <code>-ms-filter</code> 
+	  or <code>filter</code> code used to deliver gradients to IE. 
+	  So the naïve approach was to use those properties for gradients in
+	  IE8 and earlier browsers,
+	  and use SVG or another method for gradients in IE9.
+	  </p>
+	<p>But in the IE9 RC, Microsoft have decided to bring back <code>-ms-filter</code>
+	  to IE9 Standards Mode (instead of just IE7 and IE8 Standards Modes). </p>
+	<p>This might be alright, except for that now CSS rounded corners 
+	  are <strong>completely obliterated</strong> by <code>-ms-filter</code> gradients!</p>
+	<div class="pretty">This div needs a gradient and rounded corners,
+	  but the corners don’t show in IE9.<br />
+	  (Gradient applied via <code>-ms-filter</code>, though also defined in SVG.)</div>
+
+  <h3>The Workaround</h3>
+  <p>We apply <code>filter: none !important;</code> to JUST ie9.</p>
+	<div class="pretty no-filters-ie9">This div needs a gradient and rounded corners, and
+	  actually gets both in IE9. <br>
+    (Gradient applied via SVG in IE9, because we told IE9 to ignore the <code>-ms-filter</code>.)</div>
+
+  <p>To my mild shock, this dead-simple, drop-in technique actually works!
+  </p>
+  
+  <p>Here’s hoping the final IE9 build either doesn’t support <code>-ms-filter</code> 
+    anymore, or that this fix still works.</p>
+
+</body>
+</html>

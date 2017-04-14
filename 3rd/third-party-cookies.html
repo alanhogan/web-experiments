@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head id="head">
+	<meta charset=utf-8 />
+	<title>Test if Third-Party Cookies are Enabled</title>
+<style type="text/css">
+body {
+  color: black;
+  background: white none;
+  font-family: "Helvetica Neue", Arial, Helvetica, FreeSans, "Nimbus Sans", "Phetsarath OT", Malayalam, "Gargi_1.7", sans-serif;
+}
+.error {
+  color: #c00;
+}
+.loading {
+  color: #888;
+}
+.hidden {
+  display: none;
+}
+.footer {
+  font-size: 85%;
+  color: #666;
+  margin-top: 3em;
+}
+.footer a {
+  color: #444;
+}
+</style>
+<script type="text/javascript">
+window._3rd_party_test_step1_loaded = function(){
+  // At this point, a third-party domain has now attempted to set a cookie (if all went to plan!)
+  var step2Url = 'https://alanhogan.dreamhosters.com/files/step2.js.php',
+    resultsEl = document.getElementById('3rd_party_cookie_test_results'),
+    errorEl = document.getElementById('3rd_party_cookie_test_error'),
+    step2El = document.createElement('script');
+
+  // Update loading / results message
+  resultsEl.innerHTML = 'Stage one complete, loading stage 2&hellip;';
+  // And load the second part of the test (reading the cookie)
+  step2El.setAttribute('src', step2Url);
+  errorEl.appendChild(step2El);
+}
+window._3rd_party_test_step2_loaded = function(cookieSuccess){
+  var resultsEl = document.getElementById('3rd_party_cookie_test_results'),
+    errorEl = document.getElementById('3rd_party_cookie_test_error');
+  // Show message
+  resultsEl.innerHTML = (cookieSuccess ? 'Third party cookies are <b>functioning</b> in your browser.' : 'Third party cookies appear to be <b>disabled</b>.');
+
+  // Done, so remove loading class
+  resultsEl.className = resultsEl.className.replace(/\bloading\b/,' ');
+  // And remove error message
+  errorEl.className = 'hidden';
+}
+</script>
+</head>
+<body id="thebody">
+
+	<h1>Test if Third-Party Cookies are Enabled</h1>
+
+	<p id="3rd_party_cookie_test_results" class='loading'>Testing&hellip;</p>
+	<p id="3rd_party_cookie_test_error" class="error hidden">(If this message persists, the test could not be completed; we could not reach the third-party site, or another error occurred. It may help to <a target=_blank href="https://alanhogan.dreamhosters.com/">click through any certificate warnings on this test domain</a>.)</p>
+
+
+<div class="footer">
+  <p>By <a href="https://alanhogan.com">Alan Hogan</a>. <a href="http://stackoverflow.com/questions/3550790/check-if-third-party-cookies-are-enabled/7104048#7104048">More info</a>.</p>
+</div>
+
+	<script type="text/javascript">
+	window.setTimeout(function(){
+    var errorEl = document.getElementById('3rd_party_cookie_test_error');
+    if(errorEl.className.match(/\berror\b/)) {
+      // Show error message
+      errorEl.className = errorEl.className.replace(/\bhidden\b/,' ');
+    } else {
+    }
+	}, 7*1000); // 7 sec timeout
+	</script>
+  <script type="text/javascript" src="https://alanhogan.dreamhosters.com/files/step1.js.php"></script>
+  <img src="http://demo.pixelsandpages.com/generic_logger.php?name=third-party-cookie-tester" alt="" width="1" height="0" border="0" />
+</body>
+</html>
