@@ -21,7 +21,7 @@ p {
 
 #errors {
 	color: white;
-	background: #cc0000 url('http://www.pixelsandpages.com/test/skins/default/all/warning-stripe.gif') repeat-y scroll top left; 
+	background: #cc0000 url('//www.pixelsandpages.com/test/skins/default/all/warning-stripe.gif') repeat-y scroll top left; 
 	border-bottom: 2px solid white;
 	padding: 6px 6px 6px 34px;
 	font-weight: bold;
