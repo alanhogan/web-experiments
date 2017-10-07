@@ -11,7 +11,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">Demo, hombre.</p>
+        <p className="App-intro">Demo time.</p>
         <div style={{ color: "#17c" }}>
           <ThreeDotMonte _width={40} />
         </div>

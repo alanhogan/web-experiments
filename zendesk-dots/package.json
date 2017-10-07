@@ -1,6 +1,7 @@
 {
   "name": "zendesk-dots",
   "version": "0.1.0",
+  "homepage": "https://alanhogan.github.io/web-experiments/zendesk-dots/build/",
   "private": true,
   "dependencies": {
     "react": "^16.0.0",
