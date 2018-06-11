@@ -11,4 +11,5 @@ body {
   max-width: 40em; /* max comfortable reading width */
   margin: 0 auto; /* center */
   padding: 0.8em; /* don't go to edges on small screens */
+  line-height: 1.5;
 }
