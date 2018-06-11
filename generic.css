@@ -1,0 +1,14 @@
+html, body {
+  color: #222;
+  background: white none;
+}
+
+body, input, button, select {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  max-width: 40em; /* max comfortable reading width */
+  margin: 0 auto; /* center */
+  padding: 0.8em; /* don't go to edges on small screens */
+}
