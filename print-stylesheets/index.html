@@ -13,6 +13,10 @@
 <body>
   
   <h1>Print stylesheet test</h1>
+
+  <p>This page exists to test the claim that Firefox will ignore <code>@media print</code> styles unless the stylesheet was loaded with a <code>&lt;link&gt;</code> tag <code>media</code> value explicitly including "print" — and that the "all" keyword is <em>not</em> good enough.</p>
+
+  <p>According to my experiments printing this page (to PDF! I’m not a monster), on 2018-10-23, this is not true. Both Chrome and Firefox apply <em>all</em> print styles, regardless of inclusion mechanism.</p>
   
   <div class="test-setup">
     <p class="test-setup__text">
