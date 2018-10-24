@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Print stylesheet test</title>
+  <meta name="description" content="Tests how print styles may apply, or not" /> <!-- TODO: Desc -->
+  <link rel="stylesheet" href="main.css" media="all" />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <link rel="stylesheet" href="firefox-test.css" media="screen, projection, print" />
+
+</head>
+<body>
+  
+  <h1>Print stylesheet test</h1>
+  
+  <div class="test-setup">
+    <p class="test-setup__text">
+        Is the main stylesheet loaded? It should always be loaded. It is included with <code>&lt;link media="all"&gt;</code>.
+    </p>
+    <div class="main-loaded"></div>
+  </div>
+  
+  <div class="test-setup">
+    <p class="test-setup__text">
+        Are the main stylesheet @media print styles applied? This should always be the case on print. They are defined with <code>@media print</code> inside a stylesheet loaded with <code>&lt;link media="all"&gt;</code>.
+    </p>
+    <div class="main-print-applied"></div>
+  </div>
+
+  <div class="test-setup">
+    <p class="test-setup__text">
+        Has the print stylesheet applied? This should always be the case on print. It is included with <code>&lt;link media="print"&gt;</code>.
+    </p>
+    <div class="print-stylesheet-applied"></div>
+  </div>
+
+  <div class="test-setup">
+    <p class="test-setup__text">
+        Are the test stylesheet @media print styles applied? This should always be the case on print. They are defined with <code>@media print</code> inside a stylesheet loaded with <code>&lt;link media="screen, projection, print"&gt;</code>.
+    </p>
+    <div class="firefox-test-print-styles-applied"></div>
+  </div>
+</body>
+</html>

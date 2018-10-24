@@ -1,0 +1,7 @@
+.print-stylesheet-applied::after {
+    display: block;
+    content: "✓ Print stylesheet applied";
+    padding: 0.4em 1.2em;
+    color: white;
+    background: #18509c;
+}
