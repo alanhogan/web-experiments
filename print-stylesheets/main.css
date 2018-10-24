@@ -16,6 +16,10 @@ body {
     margin-bottom: 1.2em;
 }
 
+code {
+    font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
+}
+
 .main-loaded::after {
     display: block;
     content: "✓ Main stylesheet loaded";
