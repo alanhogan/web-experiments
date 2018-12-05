@@ -25,6 +25,20 @@ code {
   font-family: Menlo, "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco, monospace;
 }
   
+button {
+    -webkit-appearance: none;
+    background: #333;
+    color: white;
+    font: inherit;
+    padding: 0 0.6em;
+    border-radius: 0.2em;
+    box-shadow: 0.2em 0.2em rgba(0,0,0,0.2);
+}
+button:active {
+  transform: translate(0.1em, 0.1em);
+  box-shadow: 0.1em 0.1em rgba(0,0,0,0.2);
+}
+  
 .abs {
   position: absolute;
   top: 3em;
