@@ -8,13 +8,15 @@
 <style>
 html, body {
   font-family: system-ui, sans-serif;
-  font-size: 1.6em;
+  font-size: 16px;
+  font-size: calc(10px + 2vmin);
   background: white none;
   color: black;
 }
 
 h1, p {
   margin: 0;
+  line-height: 1.6;
 }
 
 h1 { font-size: 200%; font-weight: normal; }
@@ -42,7 +44,7 @@ code {
   <h1>Zero-Height Body</h1>
   <p>Most browsers will render this page with a <code>body</code> element with a height of 0. This is not a bug; it is because it will have no statically positioned children causing it to grow.</p>
   <p>All this text is contained within an absolutely positioned <code>div</code>.</p>
-
+  <p><button onclick="alert(document.getElementsByTagName('body').clientHeight + 'px')">What’s the height of body?</button></p>
 </div>
 
 </body>
