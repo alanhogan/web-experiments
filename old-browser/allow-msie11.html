@@ -6,8 +6,9 @@
   <title>Old Browser Detection</title>
   <meta name="description" content="" /> <!-- TODO: Desc -->
   <script type=text/javascript>
-  // All Internet Explorer versions (incl. MSIE11) fail this:
-  var capable = window.CSS && CSS.supports('display', 'grid');
+  // All Internet Explorer versions < MSIE10 fail this
+  // https://caniuse.com/#feat=internationalization
+  var capable = !! window.Intl;
 
   if (! capable) {
     document.location = "sosad.html";
