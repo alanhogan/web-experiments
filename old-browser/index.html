@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Browser Detection</title>
+  <meta name="description" content="" /> <!-- TODO: Desc -->
+  <script type=text/javascript>
+  var capable = window.CSS && CSS.supports('display', 'grid');
+
+  if (! capable) {
+    document.location = "sosad.html";
+  }
+  </script>
+</head>
+<body>
+
+  <h1>Old Browser Detection</h1>
+
+  <p><i><b>you passed!!!</b></i></p>
+
+  <noscript><p>probably. you turned off javascript. you madman. you monster. you time-warping insister on a Web of documents!</p></noscript>
+
+
+</body>
+</html>
