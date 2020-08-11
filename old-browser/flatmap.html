@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Browser Detection</title>
+  <meta name="description" content="" /> <!-- TODO: Desc -->
+  <script type=text/javascript>
+  var capable = Boolean(Array.prototype.flatMap);
+
+  if (! capable) {
+    document.location = "sosad.html";
+  }
+  </script>
+</head>
+<body>
+
+  <h1>Old Browser Detection</h1>
+
+  <p><i><b>you passed!!!</b></i> Your browser has supports <code>`flatMap`</code> on arrays, so it's probably not MSIE11 or older, Firefox 61 or older, Chrome 68 or older, or Safari 11.1 or older. <a href="https://caniuse.com/#feat=array-flat">CanIUse: flat &amp; flatMap</a></p>
+
+  <noscript><p>probably. you turned off javascript. you madman. you monster. you time-warping insister on a Web of documents!</p></noscript>
+
+
+</body>
+</html>
