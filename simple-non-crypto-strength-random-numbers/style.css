@@ -1,0 +1,87 @@
+/* Automatic dark mode, system fonts, and readable max-width
+ * via https://ajh.us/template */
+
+:root {
+  --page-bg-color: white;
+  --text-color: #222;
+  --link-color: #06d;
+  --visited-link-color: #91e;
+  --code-color: #456658;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg-color: #141414;
+    --text-color: #eee;
+    --link-color: #2af;
+    --visited-link-color: #c5f;
+    --code-color: #c5eddc;
+
+    /* Ask browser to render elements like inputs & scrollbars per dark theme */
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html,
+body,
+input,
+button,
+textarea {
+  font-family: system-ui, sans-serif;
+}
+body {
+  padding: calc(0.5em + 0.5vmin);
+  margin: 0 auto;
+  max-width: 40em;
+  background-color: var(--page-bg-color);
+  color: var(--text-color);
+
+  /* Good defaults for handling too-long words; won't help in most tables */
+  overflow-wrap: break-word;
+}
+
+:link {
+  color: var(--link-color);
+}
+:visited {
+  color: var(--visited-link-color);
+}
+
+code,
+tt,
+kbd,
+pre {
+  font-family: "JetBrains Mono", "IBM Plex Mono", "Source Code Pro",
+    "Cascadia Code", ui-monospace, Menlo, "Ubuntu Monospace", "Inconsolata",
+    "Fira Code", "Deja Vu Sans Mono", "Bitstream Vera Sans Mono", Monaco,
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", Consolas, monospace;
+  /* Fight famous 'code too big' problem */
+  font-size: 90%;
+  color: var(--code-color);
+}
+pre code,
+pre tt,
+pre kbd {
+  /* We don't want 90% of 90% for <pre><code> */
+  font-size: 100%;
+}
+
+/* End automatic dark mode, system fonts, and readable max-width */
+
+
+output {
+  font-variant-numeric: tabular-nums;
+  font-size: 120%;
+}
