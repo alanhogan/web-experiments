@@ -1,7 +1,7 @@
 @media print {
   .firefox-test-print-styles-applied::after {
       display: block;
-      content: "✓ Print styles from screen, project, print stylesheet applied";
+      content: "✓ Print styles from screen, projection, print stylesheet applied";
       padding: 0.4em 1.2em;
       color: white;
       background: #18509c;
