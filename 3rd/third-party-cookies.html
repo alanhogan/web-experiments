@@ -53,14 +53,19 @@ window._3rd_party_test_step2_loaded = function(cookieSuccess){
   errorEl.className = 'hidden';
 }
 </script>
+<!-- tiny hide utility for JS disabled -->
+<style>.requires-js{display:none;}</style>
+<script>document.write('<style>.requires-js { display: block; }</style>');</script>
+<!-- end hiding content for JS disabled -->
 </head>
 <body id="thebody">
 
 	<h1>Test if Third-Party Cookies are Enabled</h1>
-
-	<p id="3rd_party_cookie_test_results" class='loading'>Testing&hellip;</p>
-	<p id="3rd_party_cookie_test_error" class="error hidden">(If this message persists, the test could not be completed; we could not reach the third-party site, or another error occurred. It may help to <a target=_blank href="https://alanhogan.com/">click through any certificate warnings on this test domain</a>.)</p>
-
+	<noscript><b>JavaScript is not enabled, so this test cannot run!</b> Enable JavaScript and try again.</noscript>
+	<div class="requires-js">
+		<p id="3rd_party_cookie_test_results" class='loading'>Testing&hellip;</p>
+		<p id="3rd_party_cookie_test_error" class="error hidden">(If this message persists, the test could not be completed; we could not reach the third-party site, or another error occurred. It may help to <a target=_blank href="https://alanhogan.com/">click through any certificate warnings on this test domain</a>.)</p>
+	</div>
 
 <div class="footer">
   <p>By <a href="https://alanhogan.com">Alan Hogan</a>. <a href="http://stackoverflow.com/questions/3550790/check-if-third-party-cookies-are-enabled/7104048#7104048">More info</a>.</p>
